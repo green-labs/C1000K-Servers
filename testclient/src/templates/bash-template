@@ -276,16 +276,6 @@ java_version_check() {
     echo Please go to http://www.java.com/getjava/ and download
     echo
     exit 1
-  elif [[ ! "$java_version" > "8" ]]; then
-    echo
-    echo The java installation you have is not up to date
-    echo $app_name requires at least version 8+, you have
-    echo version $java_version
-    echo
-    echo Please go to http://www.java.com/getjava/ and download
-    echo a valid Java Runtime and install before running $app_name.
-    echo
-    exit 1
   fi
 }
 
