@@ -19,7 +19,7 @@ val commondependencies = Seq(
 val nettydependencies = Seq(
   "io.netty" % "netty-all" % netty_version,
   "com.jcraft" % "jzlib" % jzlib_version,
-  "io.netty" % "netty-transport-native-epoll" % netty_version
+  "io.netty" % "netty-transport-native-epoll" % netty_version classifier "linux-x86_64"
 ) ++ commondependencies
 
 val jettydependencies = Seq(
