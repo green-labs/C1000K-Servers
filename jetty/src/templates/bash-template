@@ -327,7 +327,7 @@ declare -r lib_dir="$(realpath "${app_home}/../lib")"
 ${{template_declares}}
 # java_cmd is overrode in process_args when -java-home is used
 declare java_cmd=$(get_java_cmd)
-declare app_mainclass="com.colobu.c1000k.testclient/"
+declare app_mainclass="com.colobu.webtest.grizzly/WebServer"
 
 [ -n "$JAVA_OPTS" ] || JAVA_OPTS="-Xms12G -Xmx12G -Xss1M -XX:+UseParallelGC-Xlog:gc*"
 
