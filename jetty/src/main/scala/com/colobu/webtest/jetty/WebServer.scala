@@ -26,7 +26,6 @@ object WebServer extends App with LazyLogging {
     logger.info("sending message activated")
     Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable {
       override def run(): Unit = {
-        logger.info("newScheduledThreadPool run")
         val flag = UUID.randomUUID().toString
         if (Common.sessions.size < Common.totalSize) {
           logger.info(s"current sessions: ${Common.sessions.size} for $flag")
