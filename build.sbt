@@ -14,7 +14,7 @@ val logback_version = "1.4.5"
 val commondependencies = Seq(
   "com.typesafe" % "config" % typesafe_config_version,
   "com.typesafe.scala-logging" %% "scala-logging" % scala_logging_version,
-  "ch.qos.logback" % "logback-classic" % logback_version
+  "ch.qos.logback" % "logback-classic" % logback_version % "provided"
 )
 val nettydependencies = Seq(
   "io.netty" % "netty-all" % netty_version,
@@ -28,7 +28,7 @@ val jettydependencies = Seq(
 
 val testClientdependencies = Seq(
   "org.eclipse.jetty.websocket" % "javax-websocket-client-impl" % jetty_websocket_version,
-  "javax.websocket" % "javax.websocket-api" % javax_websocket_version,
+  "javax.websocket" % "javax.websocket-api" % javax_websocket_version % "provided",
   "io.dropwizard.metrics" % "metrics-core" % metrics_version
 ) ++ commondependencies
 
@@ -79,6 +79,8 @@ lazy val defaultSettings = coreDefaultSettings ++ Seq(
   externalResolvers := Resolver.combineDefaultResolvers(resolvers.value.toVector, mavenCentral = true),
   ThisBuild / assemblyMergeStrategy := {
     case "META-INF/io.netty.versions.properties" => MergeStrategy.first
+    case PathList("module-info.class") => MergeStrategy.discard
+    case x if x.endsWith("/module-info.class") => MergeStrategy.discard
     case x =>
       val oldStrategy = (ThisBuild / assemblyMergeStrategy).value
       oldStrategy(x)
