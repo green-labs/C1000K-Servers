@@ -71,7 +71,7 @@ object WebServer extends App with LazyLogging{
   finally {
     bossGroup.shutdownGracefully()
     workerGroup.shutdownGracefully()
-    Common.clients.asScala.par.foreach(c => {
+    Common.clients.asScala.foreach(c => {
       c.close()
     })
   }
