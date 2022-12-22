@@ -65,11 +65,10 @@ class SingleClient extends App  with LazyLogging{
 class TestClient() extends LazyLogging {
   @OnMessage
   def onMessage(session: Session, message: String): Unit = {
-    Common.messageRate.mark()
+    logger.debug(s"received $message")
     val timestamp = message.toLong
     Common.messageLatency.update(System.currentTimeMillis() - timestamp)
-    logger.debug(s"received $message")
-
+    Common.messageRate.mark()
   }
 
   @OnOpen
