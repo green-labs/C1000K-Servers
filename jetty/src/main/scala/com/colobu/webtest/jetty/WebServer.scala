@@ -23,6 +23,7 @@ object WebServer extends App with LazyLogging {
   server.setHandler(context)
 
   if (!Common.onlyTestConnect) {
+    logger.info("sending message activated")
     Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable {
       override def run(): Unit = {
         val flag = UUID.randomUUID().toString

@@ -48,6 +48,7 @@ object WebServer extends App with LazyLogging{
 
     val channel = bootstrap.bind(Common.port).sync().channel()
     if (!Common.onlyTestConnect) {
+      logger.info("sending message activated")
       Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable {
         override def run(): Unit = {
           val flag = UUID.randomUUID().toString
