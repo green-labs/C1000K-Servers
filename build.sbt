@@ -13,13 +13,13 @@ val logback_version = "1.4.5"
 
 val commondependencies = Seq(
   "com.typesafe" % "config" % typesafe_config_version,
-  "com.typesafe.scala-logging" %% "scala-logging" % scala_logging_version,
-  "ch.qos.logback" % "logback-classic" % logback_version % "provided"
+  "ch.qos.logback" % "logback-classic" % logback_version,
+  "com.typesafe.scala-logging" %% "scala-logging" % scala_logging_version
 )
 val nettydependencies = Seq(
   "io.netty" % "netty-all" % netty_version,
   "com.jcraft" % "jzlib" % jzlib_version,
-  "io.netty" % "netty-transport-native-epoll" % netty_version classifier "linux-x86_64"
+  "io.netty" % "netty-transport-native-epoll" % netty_version
 ) ++ commondependencies
 
 val jettydependencies = Seq(
