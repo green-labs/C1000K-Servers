@@ -31,7 +31,7 @@ You can use them as a scaffold to develop chat, message pushing, notifications s
 You can run sbt task to create distributions for scala projects (netty, grizzly, jetty,spray,undertow,vert.x, testclient).
 
 ```sh
-sbt clean dist
+sbt clean stage
 ```
 
 For goserver and go-fasthttp, you can run the "install" script to build the server.
